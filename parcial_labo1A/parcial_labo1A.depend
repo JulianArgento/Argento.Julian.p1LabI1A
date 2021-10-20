@@ -1,0 +1,111 @@
+# depslib dependency file v1.0
+1634738744 source:d:\documentos\programacion 1\parcial_labo1a\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1634735703 d:\documentos\programacion 1\parcial_labo1a\utn.h
+
+1634739595 source:d:\documentos\programacion 1\parcial_labo1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"dataWareHouse.h"
+	"color.h"
+	"auto.h"
+	"fecha.h"
+	"trabajo.h"
+	"servicio.h"
+	"marca.h"
+	"servicio.h"
+
+1634734837 d:\documentos\programacion 1\parcial_labo1a\datawarehouse.h
+	"auto.h"
+
+1634734801 source:d:\documentos\programacion 1\parcial_labo1a\datawarehouse.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"dataWarehouse.h"
+	"auto.h"
+
+1634665967 source:d:\documentos\programacion 1\parcial_labo1a\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"utn.h"
+
+1634666505 d:\documentos\programacion 1\parcial_labo1a\color.h
+
+1634593584 source:d:\documentos\programacion 1\parcial_labo1a\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fecha.h"
+	"utn.h"
+
+1634666254 d:\documentos\programacion 1\parcial_labo1a\fecha.h
+
+1634739763 source:d:\documentos\programacion 1\parcial_labo1a\auto.c
+	<stdio.h>
+	<stdlib.h>
+	"auto.h"
+	"fecha.h"
+	"color.h"
+	"marca.h"
+	"servicio.h"
+	"trabajo.h"
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1634739373 d:\documentos\programacion 1\parcial_labo1a\auto.h
+	"color.h"
+	"marca.h"
+
+1634732594 d:\documentos\programacion 1\parcial_labo1a\marca.h
+
+1634737841 d:\documentos\programacion 1\parcial_labo1a\servicio.h
+
+1634738526 d:\documentos\programacion 1\parcial_labo1a\trabajo.h
+	"color.h"
+	"marca.h"
+	"auto.h"
+	"servicio.h"
+
+1634732365 source:d:\documentos\programacion 1\parcial_labo1a\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"marca.h"
+	"utn.h"
+
+1634738783 source:d:\documentos\programacion 1\parcial_labo1a\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	"auto.h"
+	"fecha.h"
+	"color.h"
+	"marca.h"
+	"servicio.h"
+	"trabajo.h"
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1634733585 source:d:\documentos\programacion 1\parcial_labo1a\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"servicio.h"
+	"utn.h"
+
