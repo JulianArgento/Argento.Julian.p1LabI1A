@@ -14,7 +14,7 @@
 #define TAM_MARCA 5
 #define TAM_COLORES 5
 #define TAM_SERVICIOS 4
-#define TAM_TRABAJOS 30
+#define TAM_TRABAJOS 10
 
 
 int main()
@@ -27,7 +27,9 @@ int main()
     int nextIdTrabajo= 2000;
 
     eAuto lista[TAM];
-    eTrabajo trabajos[TAM_TRABAJOS];
+
+    inicializarAutos(lista,TAM);
+
 
     eMarca marcas[TAM_MARCA]=
     {
@@ -39,6 +41,21 @@ int main()
         {1004,"Peugeot"},
 
 
+
+    };
+
+    eTrabajo trabajos[TAM_TRABAJOS]=
+    {
+        {2000,2001,20001,25,02,2002,0},
+        {2001,2001,20000,20,12,2012,0},
+        {2002,2002,20002,11,11,2020,0},
+        {2003,2003,20002,13,11,2012,0},
+        {2004,2003,20001,13,11,2012,0},
+        {2000,2002,20001,25,02,2002,0},
+        {2001,2002,20000,20,12,2012,0},
+        {2002,2000,20002,11,11,2020,0},
+        {2003,2000,20002,13,11,2012,0},
+        {2004,2000,20001,13,11,2012,0}
 
     };
 
@@ -65,9 +82,9 @@ int main()
 
 
     inicializarAutos(lista,TAM);
-    inicializarTrabajos(trabajos,TAM_TRABAJOS);
 
-    //hardcodearAutos(lista,TAM,5,&nextId);
+
+    hardcodearAutos(lista,TAM,5,&nextId);
 
     do
     {
@@ -98,7 +115,7 @@ int main()
 
             if(modificarAuto(lista,TAM,colores,marcas,TAM_COLORES,TAM_MARCA))
             {
-             printf("Auto modificado con exito\n\n");
+                printf("Auto modificado con exito\n\n");
             }
             else
             {
@@ -130,7 +147,10 @@ int main()
 
             system("cls");
             ordenarAutos(lista,TAM);
-            mostrarAutos(lista,TAM,marcas,colores,TAM_COLORES,TAM_MARCA);
+            if(!mostrarAutos(lista,TAM,marcas,colores,TAM_COLORES,TAM_MARCA))
+            {
+                printf("Hubo un error al mostrar los autos\n");
+            }
             break;
         case 5:
             if(!checkAutoCargado(lista,TAM))
@@ -141,8 +161,15 @@ int main()
 
 
             system("cls");
-            mostrarMarcas(marcas,TAM_MARCA);
+
+            if(!mostrarMarcas(marcas,TAM_MARCA))
+            {
+                printf("Hubo un error al mostrar las marcas\n");
+
+            }
             break;
+
+
         case 6:
             if(!checkAutoCargado(lista,TAM))
             {
@@ -151,7 +178,13 @@ int main()
             }
 
             system("cls");
-            mostrarColores(colores,TAM_COLORES);
+
+            if( !mostrarColores(colores,TAM_COLORES))
+            {
+                printf("Hubo un error al mostrar los colores\n");
+            }
+
+
             break;
         case 7:
             if(!checkAutoCargado(lista,TAM))
@@ -161,7 +194,12 @@ int main()
             }
 
             system("cls");
-            mostrarServicios(lavados,TAM_SERVICIOS);
+
+            if( !mostrarServicios(lavados,TAM_SERVICIOS))
+            {
+                printf("Hubo un error al mostrar los servicios\n");
+            }
+
             break;
 
         case 8:
@@ -183,7 +221,7 @@ int main()
             }
             break;
 
-        case 9:
+         case 9:
             if(!checkAutoCargado(lista,TAM))
             {
                 printf("Debe ingresar un auto antes.\n");
@@ -192,12 +230,223 @@ int main()
 
             system("cls");
 
-            mostrarTrabajos(trabajos,TAM_TRABAJOS,lavados,TAM_SERVICIOS);
+            if(!mostrarTrabajos(trabajos,TAM_TRABAJOS,lavados,TAM_SERVICIOS))
+            {
+                printf("Hubo un error al mostrar los trabajos.\n");
+            }
+
+            break;
+
+        case 10:
+            if(!checkAutoCargado(lista,TAM))
+            {
+                printf("Debe ingresar un auto antes.\n");
+                break;
+            }
+
+            system("cls");
+
+
+            switch(menuInformes())
+            {
+
+
+            case 1:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!mostrarAutoColor(lista,TAM,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al mostrar los autos.\n");
+                }
+
+
+
+                break;
+
+
+            case 2:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!mostrarAutoMarca(lista,TAM,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al mostrar los autos\n");
+                }
+
+
+
+                break;
+
+
+            case 3:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!informarPromedioCaja(lista,TAM))
+                {
+                    printf("Hubo un error al mostrar los autos\n");
+                }
+
+
+
+                break;
+
+            case 4:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!mostrarAutosCaja(lista,TAM,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar los autos\n");
+                }
+
+
+
+                break;
+
+            case 5:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!mostrarAutoMarcaColor(lista,TAM,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar los autos\n");
+                }
+
+
+
+                break;
+
+            case 6:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!informeMarcasMasElegidas(lista,TAM,marcas,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar las marcas mas elegidas.\n");
+                }
+
+
+
+                break;
+
+            case 7:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!informarTrabajosAuto(lista,TAM,trabajos,TAM_TRABAJOS,lavados,TAM_SERVICIOS,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar los trabajos realizados en el auto elegido.\n");
+                }
+
+
+
+                break;
+
+            case 8:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!informarImporteAuto(lista,TAM,trabajos,TAM_TRABAJOS,lavados,TAM_SERVICIOS,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar los trabajos realizados en el auto elegido.\n");
+                }
+
+
+
+                break;
+
+            case 9:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!informarServicioAutos(lista,TAM,trabajos,TAM_TRABAJOS,lavados,TAM_SERVICIOS,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar los trabajos realizados en el auto elegido.\n");
+                }
+
+
+
+                break;
+
+            case 10:
+                if(!checkAutoCargado(lista,TAM))
+                {
+                    printf("Debe ingresar un auto antes.\n");
+                    break;
+                }
+
+                system("cls");
+
+                if(!informarFechaServicios(lista,TAM,trabajos,TAM_TRABAJOS,lavados,TAM_SERVICIOS,marcas,colores,TAM_COLORES,TAM_MARCA))
+                {
+                    printf("Hubo un error al informar los trabajos realizados en el auto elegido.\n");
+                }
+
+
+
+                break;
+
+
+
+
+                case 11:
+                break;
+            }
+
+
+
             break;
 
 
 
-        case 10:
+            case 11:
             printf("Desea salir? (s para si)");
             scanf("%c",&salir);
             break;

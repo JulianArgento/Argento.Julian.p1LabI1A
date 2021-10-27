@@ -1,0 +1,113 @@
+# depslib dependency file v1.0
+1635340836 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\auto.c
+	<stdio.h>
+	<stdlib.h>
+	"auto.h"
+	"fecha.h"
+	"color.h"
+	"marca.h"
+	"servicio.h"
+	"trabajo.h"
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1635339546 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\auto.h
+	"color.h"
+	"marca.h"
+	"servicio.h"
+
+1635292021 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\color.h
+
+1635292075 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\marca.h
+
+1634740176 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\fecha.h
+
+1635339546 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\servicio.h
+
+1635340013 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\trabajo.h
+	"auto.h"
+	"fecha.h"
+	"servicio.h"
+	"color.h"
+	"marca.h"
+
+1635340013 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\utn.h
+
+1634740176 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"utn.h"
+
+1635340979 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\datawarehouse.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"dataWarehouse.h"
+	"auto.h"
+
+1635292043 d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\datawarehouse.h
+	"auto.h"
+
+1634740176 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fecha.h"
+	"utn.h"
+
+1635341109 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"dataWareHouse.h"
+	"color.h"
+	"auto.h"
+	"fecha.h"
+	"trabajo.h"
+	"servicio.h"
+	"marca.h"
+	"servicio.h"
+
+1634740176 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"marca.h"
+	"utn.h"
+
+1635295344 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"servicio.h"
+	"utn.h"
+
+1635338027 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	"auto.h"
+	"fecha.h"
+	"color.h"
+	"marca.h"
+	"servicio.h"
+	"trabajo.h"
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1635338903 source:d:\documentos\programacion 1\argento.julian.p1labi1a-main\parcial_laboratorio1a\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+

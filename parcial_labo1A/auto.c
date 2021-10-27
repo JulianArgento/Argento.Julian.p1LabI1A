@@ -120,6 +120,20 @@ int altaAuto(eAuto lista[], int tam, eColor colores[], int tam_colores, eMarca m
 
 void mostrarAuto(eAuto unAuto, eMarca marcas[], eColor colores[], int tam_colores,int tam_Marca)
 {
+    char caja[20];
+
+    char automatico[20]= "Automatica";
+    char manual[20]= "Manual";
+
+
+    if(unAuto.caja=='a')
+    {
+        strcpy(caja,automatico);
+    }
+    else
+    {
+        strcpy(caja,manual);
+    }
 
 
     char nombreColor[21];
@@ -129,11 +143,11 @@ void mostrarAuto(eAuto unAuto, eMarca marcas[], eColor colores[], int tam_colore
     cargarMarca(marcas,tam_Marca,unAuto.idMarca,descMarca);
 
 
-    printf("  %d   %6s      %s   %c    \n",
+    printf("  %d      %6s       %6s        %6s   \n",
            unAuto.id,
            descMarca,
            nombreColor,
-           unAuto.caja);
+           caja);
 
 
 
@@ -148,7 +162,7 @@ int mostrarAutos(eAuto lista[],int tam, eMarca marcas[], eColor colores[], int t
     {
         system("cls");
         printf("       *** Listado de Autos ***      \n");
-        printf("   Id   Marca    Color   Caja\n");
+        printf("   Id      Marca       Color         Caja\n");
         printf("---------------------------------------------\n");
         for(int i = 0; i < tam; i++)
         {
@@ -381,6 +395,387 @@ int checkAutoCargado(eAuto lista[],int tam)
     }
     return check;
 }
+
+
+int mostrarAutoColor(eAuto lista[],int tam,eMarca marcas[], eColor colores[], int tam_colores,int tam_marca)
+{
+    int todoOk=0;
+    int flag=1;
+
+    if(lista != NULL && colores != NULL && marcas != NULL && tam > 0 && tam_colores > 0 && tam_marca > 0 )
+    {
+        int idColor;
+        char nombreColor[20];
+
+
+
+        mostrarColores(colores,tam_colores);
+        printf("\n\n");
+        printf("Ingrese id del color que desea buscar : ");
+        scanf("%d", &idColor);
+        while(idColor<5000||idColor>5004)
+        {
+            printf("error. id ingresado no valido\n");
+            printf("Ingrese id del color que desea buscar : ");
+            scanf("%d", &idColor);
+        }
+
+        printf("\n\n");
+
+        cargarColor(colores,tam_colores,idColor,nombreColor);
+
+        printf("       *** Listado de Autos de color %s***      \n",nombreColor);
+        printf("   Id   Marca    Color   Caja\n");
+        printf("---------------------------------------------\n");
+        for(int i = 0; i < tam; i++)
+        {
+            if(lista[i].isEmpty == 0&&lista[i].idColor==idColor)
+            {
+                mostrarAuto(lista[i],marcas,colores,tam_colores,tam_marca);
+                flag = 0;
+
+            }
+        }
+        if(flag)
+        {
+            printf("No hay Autos para mostrar de ese color.\n");
+
+        }
+        todoOk=1;
+    }
+
+    return todoOk;
+
+
+}
+
+int mostrarAutoMarca(eAuto lista[],int tam,eMarca marcas[], eColor colores[], int tam_colores,int tam_marca)
+{
+    int todoOk=0;
+    int flag=1;
+
+    if(lista != NULL && colores != NULL && marcas != NULL && tam > 0 && tam_colores > 0 && tam_marca > 0 )
+    {
+        int idMarca;
+        char descMarca[20];
+
+
+
+        mostrarMarcas(marcas,tam_marca);
+        printf("Ingrese el id de la marca: ");
+        fflush(stdin);
+        scanf("%d", &idMarca);
+
+        while(idMarca<1000||idMarca>1004)
+        {
+            printf("error. Ingrese una marca que este en la lista.\n");
+            printf("Vuelva a ingresar el id de marca a buscar: ");
+            fflush(stdin);
+            scanf("%d", &idMarca);
+        }
+
+        cargarMarca(marcas,tam_marca,idMarca,descMarca);
+
+        printf("\n\n");
+
+
+
+        printf("       *** Listado de Autos de marca %s***      \n",descMarca);
+        printf("   Id   Marca    Color   Caja\n");
+        printf("---------------------------------------------\n");
+        for(int i = 0; i < tam; i++)
+        {
+            if(lista[i].isEmpty == 0&&lista[i].idMarca==idMarca)
+            {
+                mostrarAuto(lista[i],marcas,colores,tam_colores,tam_marca);
+                flag = 0;
+
+            }
+        }
+        if(flag)
+        {
+            printf("No hay Autos para mostrar de esa marca.\n");
+
+        }
+        todoOk=1;
+    }
+
+    return todoOk;
+
+
+}
+
+int mostrarAutosCaja(eAuto lista[],int tam,eMarca marcas[], eColor colores[], int tam_colores,int tam_marca)
+{
+    int todoOk=0;
+
+    int flagAutomaticos=1;
+    int flagManuales=1;
+
+
+
+
+    if(lista !=NULL&&marcas!=NULL&&colores!=NULL&&tam>0&&tam_colores>0&&tam_marca>0)
+    {
+        printf("\n\n");
+        printf("       *** Listado de Autos de caja Automatica***      \n");
+        printf("   Id   Marca    Color   Caja\n");
+        printf("-----------------------------------------\n");
+
+        for(int i = 0; i < tam; i++)
+        {
+            if(lista[i].isEmpty == 0&&lista[i].caja=='a')
+            {
+                printf("\n");
+                mostrarAuto(lista[i],marcas,colores,tam_colores,tam_marca);
+                flagAutomaticos = 0;
+
+            }
+        }
+
+        if(flagAutomaticos)
+        {
+            printf("\n\n");
+            printf("No hay autos de caja Automatica\n\n");
+        }
+
+        printf("\n\n");
+
+        printf("       *** Listado de Autos de caja Manual***      \n");
+        printf("   Id   Marca    Color   Caja\n");
+        printf("-----------------------------------------\n");
+
+        for(int i = 0; i < tam; i++)
+        {
+            if(lista[i].isEmpty == 0&&lista[i].caja=='m')
+            {
+                printf("\n");
+                mostrarAuto(lista[i],marcas,colores,tam_colores,tam_marca);
+                flagManuales = 0;
+
+            }
+        }
+
+
+
+        if(flagManuales)
+        {
+            printf("\n\n");
+            printf("No hay autos de caja Manual\n\n");
+        }
+
+        todoOk=1;
+    }
+
+    return todoOk;
+
+
+
+}
+
+
+
+int mostrarAutoMarcaColor(eAuto lista[],int tam,eMarca marcas[], eColor colores[], int tam_colores,int tam_marca)
+{
+    int todoOk=0;
+    int flag=1;
+
+    if(lista != NULL && colores != NULL && marcas != NULL && tam > 0 && tam_colores > 0 && tam_marca > 0 )
+    {
+        int idMarca;
+        char descMarca[20];
+        int idColor;
+        char nombreColor[20];
+        int contador=0;
+
+
+
+        mostrarMarcas(marcas,tam_marca);
+        printf("Ingrese el id de la marca a buscar: ");
+        fflush(stdin);
+        scanf("%d", &idMarca);
+
+        while(idMarca<1000||idMarca>1004)
+        {
+            printf("error. Ingrese una marca que este en la lista.\n");
+            printf("Vuelva a ingresar el id de marca a buscar: ");
+            fflush(stdin);
+            scanf("%d", &idMarca);
+        }
+
+        cargarMarca(marcas,tam_marca,idMarca,descMarca);
+
+        printf("\n\n");
+
+        mostrarColores(colores,tam_colores);
+        printf("\n\n");
+        printf("Ingrese id del color que desea buscar : ");
+        scanf("%d", &idColor);
+        while(idColor<5000||idColor>5004)
+        {
+            printf("error. id ingresado no valido\n");
+            printf("Ingrese id del color que desea buscar : ");
+            scanf("%d", &idColor);
+        }
+        cargarColor(colores,tam_colores,idColor,nombreColor);
+        printf("\n\n");
+
+
+        system("cls");
+        printf("       *** Suma de Autos de marca %s y de color %s***      \n",descMarca,nombreColor);
+        printf("---------------------------------------------\n");
+        for(int i = 0; i < tam; i++)
+        {
+            if(lista[i].isEmpty == 0&&lista[i].idMarca==idMarca&&lista[i].idColor==idColor)
+            {
+                contador++;
+                flag = 0;
+
+            }
+        }
+        if(flag)
+        {
+            printf("No hay Autos de esa marca y color.\n\n\n");
+
+        }
+        else
+        {
+            printf("Hay un total de %d autos de marca %s y de color %s\n\n",contador,descMarca,nombreColor);
+
+        }
+        todoOk=1;
+    }
+
+    return todoOk;
+
+
+}
+
+
+
+
+
+int informeMarcasMasElegidas(eAuto lista[],int tam,eMarca marcas[],int tam_marca)
+{
+
+
+    int todoOk= 0;
+    int contadores[5]= {0};
+    int mayorCantidadMarca;
+
+    if(lista != NULL  && marcas != NULL && tam > 0  && tam_marca > 0)
+    {
+
+        printf("  *** Informe marca mas elegida ***\n");
+        printf("-----------------------------------------\n");
+
+
+        for(int i=0; i<tam_marca; i++)
+        {
+
+
+            for(int j=0; j<tam; j++)
+            {
+                if(lista[j].idMarca==marcas[i].id&&lista[j].isEmpty==0)
+                {
+                    contadores[i]++;
+                }
+
+
+            }
+
+
+        }
+
+        for(int i=0; i<tam_marca; i++)
+        {
+            if(i==0||contadores[i]>mayorCantidadMarca)
+            {
+                mayorCantidadMarca=contadores[i];
+            }
+
+
+        }
+
+        for(int i=0; i<tam_marca; i++)
+        {
+            if(contadores[i]==mayorCantidadMarca)
+            {
+                printf("%s\n",marcas[i].descripcion);
+            }
+
+
+        }
+
+
+        todoOk=1;
+
+
+    }
+
+
+    return todoOk;
+
+}
+
+int informarPromedioCaja(eAuto lista[],int tam)
+{
+    int todoOk= 0;
+    int contadorAutomaticos=0;
+    int contadorManuales=0;
+    int total;
+
+    float promedioAutomaticos;
+    float promedioManuales;
+
+    if(lista!=NULL&&tam>0)
+    {
+        for(int i=0; i<tam; i++)
+        {
+
+            if(lista[i].caja=='a')
+            {
+                contadorAutomaticos++;
+            }
+            else
+            {
+                contadorManuales++;
+            }
+
+
+
+        }
+
+
+        total= contadorAutomaticos+contadorManuales;
+
+
+        if(total!=0)
+        {
+            promedioAutomaticos= (float) (contadorAutomaticos*100)/total;
+
+            promedioManuales= (float) (contadorManuales*100)/total;
+
+             printf("  *** Informe promedio segun caja ***\n");
+            printf("-----------------------------------------\n");
+            printf("El promedio de autos con caja manual es de %.2f porciento.\nEl promedio de autos con caja automatica es de %.2f porciento.\n",promedioManuales,promedioAutomaticos);
+            todoOk=1;
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+    return todoOk;
+
+}
+
 
 
 

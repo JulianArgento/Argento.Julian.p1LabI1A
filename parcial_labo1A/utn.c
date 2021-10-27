@@ -4,12 +4,7 @@
 #include "utn.h"
 
 
-/**
- * \brief Solicita un texto al usuario y lo devuelve
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return void
- */
+
 void getString(char mensaje[],char input[])
 {
     printf("%s",mensaje);
@@ -17,12 +12,7 @@ void getString(char mensaje[],char input[])
 }
 
 
-/**
- * \brief Verifica si el valor recibido es numérico
- * \param str Array con la cadena a ser analizada
- * \return 1 si es númerico y 0 si no lo es
- *
- */
+
 
 int esNumerico(char str[])
 {
@@ -35,12 +25,7 @@ int esNumerico(char str[])
    }
    return 1;
 }
-/**
- * \brief Solicita un texto al usuario y lo devuelve
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return 1 si el texto contiene solo letras
- */
+
 int getStringLetras(char mensaje[],char input[])
 {
     char aux[256];
@@ -52,12 +37,7 @@ int getStringLetras(char mensaje[],char input[])
     }
     return 0;
 }
-/**
- * \brief Verifica si el valor recibido contiene solo letras
- * \param str Array con la cadena a ser analizada
- * \return 1 si contiene solo ' ' y letras y 0 si no lo es
- *
- */
+
 int esSoloLetras(char str[])
 {
    int i=0;
@@ -87,8 +67,8 @@ int menu()
     printf("7. Listar servicios \n");
     printf("8. Alta trabajos\n");
     printf("9. Mostrar trabajos\n");
-    printf("10.Salir\n");
-
+    printf("10.Informes\n");
+    printf("11.Salir\n");
 
 
     printf("Ingrese opcion: ");
@@ -114,6 +94,37 @@ int subMenu()
     printf("2. Marca \n");
 
     printf("3. Salir\n");
+
+    printf("Ingrese opcion: ");
+    printf("\n\n");
+    fflush(stdin);
+    scanf("%d", &opcion);
+
+    return opcion;
+
+
+
+}
+
+int menuInformes()
+{
+    system("cls");
+
+    int opcion;
+
+
+    printf("-----Elija el informe a realizar-----\n\n\n");
+    printf("1. Mostrar autos segun color\n");
+    printf("2. Mostrar autos segun marca\n");
+    printf("3. Promedio de autos segun caja\n");
+    printf("4. Listado de autos por caja\n");
+    printf("5. Contar cuantos autos hay de cierta marca y color\n");
+    printf("6. Marcas mas elegidas por los clientes\n");
+    printf("7. Todos los trabajos de un auto\n");
+    printf("8. Importe de un auto especifico\n");
+    printf("9. Informe de servicio\n");
+    printf("10. Servicios realizados en cierta fecha\n");
+    printf("11. Salir\n");
 
     printf("Ingrese opcion: ");
     printf("\n\n");

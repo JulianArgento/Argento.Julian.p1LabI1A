@@ -43,3 +43,23 @@ int cargarServicio(eServicio lavados[], int tam, int idServicio , char descServi
 	}
 	return todoOk;
 }
+
+int cargarPrecio(eServicio lavados[],int tam, int idServicio, int* precio)
+{
+
+    int todoOk = 0;
+	if(lavados != NULL && tam > 0 && precio != NULL)
+	{
+		for(int i = 0; i < tam; i++)
+		{
+			if(lavados[i].id == idServicio)
+			{
+				*precio = lavados[i].precio;
+				break;
+			}
+		}
+		todoOk = 1;
+	}
+	return todoOk;
+
+}

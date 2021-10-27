@@ -10,8 +10,7 @@
 
 int idColores[10] = {5001, 5002, 5000, 5001, 5001, 5003, 5004, 5002, 5004, 5001};
 
-
-int idMarcas[10] = {1001, 1002, 1000, 1001, 1001, 1003, 1000, 1002, 1000, 1001};
+int idMarcas[10] = {1001, 1002, 1002, 1001, 1001, 1003, 1000, 1002, 1000, 1001};
 
 char cajas[10]= {'m','a','m','m','m','a','m','m','m','a'};
 
@@ -34,3 +33,6 @@ int hardcodearAutos(eAuto lista[], int tam, int cant, int* pId)
 	}
 	return contador;
 }
+
+
+
